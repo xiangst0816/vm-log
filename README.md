@@ -53,7 +53,7 @@ console.log(vm.$log)
 
 ## 版本信息
 
-- 0.1.0 first commit
+- 0.0.1 first commit
 
 
 ## LICENSE
