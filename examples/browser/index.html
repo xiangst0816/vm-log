@@ -1,0 +1,33 @@
+<html>
+
+<head>
+  <title>webpack library example - Transalating numbers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no email=no" />
+  <script src="http://vuejs.org/js/vue.min.js"></script>
+  <script type='text/javascript' src='./vm-log.min.js'></script>
+</head>
+
+<body>
+  <div id='root'>
+    <h2>测试信息</h2>
+    <p>其余信息处参考console</p>
+  </div>
+
+  <script type='text/javascript'>
+    var vm = Vue.prototype
+    Vue.use(vmLog)
+    console.log(vm.$log)
+    var vm2 = new Vue({
+      el: '#root',
+      data: function () {
+        return {
+        }
+      }
+    })
+
+    // document.getElementById('root').innerHTML = " This is a browser example where and api is called to transalate 'One' to '1' \n Results: wordtonum('One') === " + webpackNumbers.wordtonum('One')
+  </script>
+</body>
+
+</html>
