@@ -224,9 +224,7 @@
                             <section class="col" col-4>
                                 <strong>{{key}}</strong>
                             </section>
-                            <section class="col" col-8>
-                                <strong>{{value}}</strong>
-                            </section>
+                            <section class="col" col-8>{{value}}</section>
                         </section>
                         <h5 class="titleColor">SessionStorage</h5>
     
@@ -234,24 +232,18 @@
                             <section class="col" col-4>
                                 <strong>{{key}}</strong>
                             </section>
-                            <section class="col" col-8>
-                                <strong>{{value}}</strong>
-                            </section>
+                            <section class="col" col-8>{{value}}</section>
                         </section>
                         <h5 class="titleColor">CookieString</h5>
                         <section class="row">
-                            <section class="col">
-                                <strong>{{cookieString}}</strong>
-                            </section>
+                            <section class="col">{{cookieString}}</section>
                         </section>
                         <h5 class="titleColor">ParseCookie</h5>
                         <section class="row" v-for="(value, key) in cookieObject">
                             <section class="col" col-4>
                                 <strong>{{key}}</strong>
                             </section>
-                            <section class="col" col-8>
-                                <strong>{{value}}</strong>
-                            </section>
+                            <section class="col" col-8>{{value}}</section>
                         </section>
                         <h5 class="titleColor">操作</h5>
                         <section class="row">
@@ -452,8 +444,8 @@ export default {
 
         if (window.VM) {
           window.VM.platform.ready().then(() => {
-              this.isPlatformReady = true
-            })
+            this.isPlatformReady = true
+          })
 
           this.platform = window.VM.platform
 
@@ -850,6 +842,9 @@ window.Date.prototype.Format = function Format (fmt) { // author: meizz
             margin-left: auto;
             margin-right: auto;
             width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
             .col {
                 position: relative;
                 padding: 5px;
@@ -873,6 +868,10 @@ window.Date.prototype.Format = function Format (fmt) { // author: meizz
                     width: 33.33333%;
                     max-width: 33.33333%;
                     padding: 5px;
+    
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
                 &[col-8] {
                     flex: 0 0 66.66667%;

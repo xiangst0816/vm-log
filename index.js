@@ -1,1 +1,1 @@
-module.exports = require('./dist/vm-storage.min.js')
+module.exports = require('./dist/vm-log.min.js')

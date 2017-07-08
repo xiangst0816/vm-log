@@ -1,6 +1,6 @@
 {
   "name": "vm-log",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "针对Vimo框架的日志查看组件, 可以在手机上查看config/platform/storage等信息",
   "main": "dist/vm-log.min.js",
   "scripts": {

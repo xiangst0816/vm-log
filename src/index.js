@@ -103,9 +103,9 @@ const install = (Vue) => {
   Object.defineProperty(Vue.prototype, '$log', {
     get () { return _ins }
   })
-    // 截获console
-    // 正常log: log/debug/info
-    // 异常log: error/warn/assert 等信息, 并用自己的方法存储记录
+  // 截获console
+  // 正常log: log/debug/info
+  // 异常log: error/warn/assert 等信息, 并用自己的方法存储记录
   if (HAS_CONSOLE) {
     let console = window.console
     let typeLists = ['log', 'debug', 'info', 'error', 'warn', 'assert']
@@ -113,23 +113,23 @@ const install = (Vue) => {
       let typeFn = console[type].bind(console)
       console[type] = function () {
         var args = Array.prototype.slice.call(arguments)
-          // ---------- !注意! ---------
-          // 这里不是console真正发出的位置
-          // ---------- !注意! ---------
+        // ---------- !注意! ---------
+        // 这里不是console真正发出的位置
+        // ---------- !注意! ---------
         typeFn.apply(null, arguments)
         _ins[type](...args)
       }
     })
   }
 
-    /**
-     * 监听全局的js文件错误
-     * @param {String}  message   错误信息
-     * @param {String}  script      出错的文件
-     * @param {String}    line     出错代码的行号
-     * @param {String}    column   出错代码的列号
-     * @param {Object}  errorObj       错误的详细信息，Anything
-     */
+  /**
+   * 监听全局的js文件错误
+   * @param {String}  message   错误信息
+   * @param {String}  script      出错的文件
+   * @param {String}    line     出错代码的行号
+   * @param {String}    column   出错代码的列号
+   * @param {Object}  errorObj       错误的详细信息，Anything
+   */
   window['onerror'] = function (message, script, line, column, errorObj) {
     _ins.error(normalizeError({
       message: message,
@@ -141,7 +141,7 @@ const install = (Vue) => {
     return true
   }
 
-    // 这个错误一般发出: Script error.
+  // 这个错误一般发出: Script error.
   window.addEventListener('error', function (err) {
     _ins.error(normalizeError(err))
   })
@@ -338,7 +338,7 @@ class Log {
     if (typeof msg === 'object') {
       try {
         msg = JSON.stringify(msg)
-      } catch (err) {}
+      } catch (err) { }
     }
 
     if (typeof msg !== 'string') {
@@ -410,6 +410,7 @@ function normalizeError (err) {
   return o
 }
 
+var a = er
 const log = {
   version: VERSION,
   install

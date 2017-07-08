@@ -6,6 +6,11 @@
   <meta name="format-detection" content="telephone=no email=no" />
   <script src="http://vuejs.org/js/vue.min.js"></script>
   <script type='text/javascript' src='./vm-log.min.js'></script>
+  <style>
+    .hello {
+      color: red;
+    }
+  </style>
 </head>
 
 <body>
@@ -15,9 +20,29 @@
   </div>
 
   <script type='text/javascript'>
+    // eslint-disable-next-line no-undef
     var vm = Vue.prototype
+
+    // eslint-disable-next-line no-undef
     Vue.use(vmLog)
     console.log(vm.$log)
+    window.setTimeout(function () {
+      vm.$log.open()
+      window.setTimeout(function () {
+        vm.$log.log('这个是log信息 from $log.log')
+        vm.$log.debug('这个是debug信息 from $log.debug')
+        vm.$log.info('这个是info信息 from $log.info')
+        vm.$log.error('未得到ajax的数据', 'AJAX TIMEOUT/FAIL', './getData.js::<Function>getInfo()', '12')
+
+        console.log('这个是log信息 from console.log')
+        console.debug('这个是debug信息 from console.debug')
+        console.info('这个是info信息 from console.info')
+        console.error('未得到ajax的数据', 'AJAX TIMEOUT/FAIL', './getData.js::<Function>getInfo()', '12')
+        // eslint-disable-next-line no-undef
+        a.b.c = 10
+      }, 1000)
+    }, 1000)
+    // eslint-disable-next-line no-unused-vars
     var vm2 = new Vue({
       el: '#root',
       data: function () {
